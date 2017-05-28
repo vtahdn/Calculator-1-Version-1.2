@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var botConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        let scale = UIScreen.main.bounds.height / 671
+        topConstraint.constant *= scale
+        botConstraint.constant *= scale
+    }
 }
 
